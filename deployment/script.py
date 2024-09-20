@@ -42,7 +42,7 @@ def index():
         with open('predicted_values_only_file', 'rb') as f:
             predicted_values_list=pickle.load(f)
             input_data = np.array(predicted_values_list).reshape(1, len(predicted_values_list))
-            model = tf.keras.models.load_model('classification_models/classification_model_1.h5')
+            model = tf.keras.models.load_model('classification_models/classification_model_1.h5', compile=False)
             
             # Make predictions
             predictions = model.predict(input_data)
